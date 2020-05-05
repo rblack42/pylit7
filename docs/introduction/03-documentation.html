@@ -1,0 +1,376 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Documenting Your project &mdash; pyrst 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Testing Your Code" href="04-testing.html" />
+    <link rel="prev" title="Getting Started" href="02-getting-started.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pyrst
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01-preface.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-getting-started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Documenting Your project</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#step-3-add-a-makefile">Step 3: Add a Makefile</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#init">init</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reqs">reqs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#docs">docs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#update-gitignore">Update .gitignore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sphinx-setup">Sphinx Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#conf-py">conf.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#index-rst">index.rst</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#add-document-files">Add Document Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#update-github">Update Github</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="04-testing.html">Testing Your Code</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pyrst</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Documenting Your project</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/introduction/03-documentation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="documenting-your-project">
+<h1>Documenting Your project<a class="headerlink" href="#documenting-your-project" title="Permalink to this headline">¶</a></h1>
+<p>Read time: 11.7 minutes (1169 words)</p>
+<p>We will begin this project by using <a class="reference external" href="https://www.sphinx-doc.org/">Sphinx</a> to generate our documentation. We
+will need to process <em>reStructuredText</em> files using this tool many times, and the required
+command is a bit obnoxious to remember. Instead we will use another common tool
+in the development world to help us: <strong>make</strong>.</p>
+<div class="section" id="step-3-add-a-makefile">
+<h2>Step 3: Add a Makefile<a class="headerlink" href="#step-3-add-a-makefile" title="Permalink to this headline">¶</a></h2>
+<p>I know many developers use fancy <em>Integrated Development Environments</em> to build
+their projects. Those tools are powerful and complex. Learning one means
+spending a fair amount of time getting to the point where you become proficient
+enough to speed up your work. My problem with using an IDE is that many of them
+force a structure on your project that is hard to figure out. Also, they tend
+to lock you into one tool, which may not be the tool you will need to use when
+you get that first “real” job. Furthermore, relying on an IDE when you are
+learning the development craft hides details about the process you really should
+understand. Finally, all IDE tools require a graphical interface, something not
+found on servers sitting in that ‘cloud’. many projects require some code to be
+run on a remote server, and knowing how to work on those machines is a valuable
+addition to your resume!</p>
+<p>So, we will be using the command line for our work.</p>
+<p>But I am not going to force you to run every command manually. That would be
+silly and time consuming. Instead, we will use a classic tool from the Unix
+world called <strong>make</strong>.</p>
+<p>Make uses a simple (well, simple after you learn a few things) text file to
+describe the steps needed to perform some task. Some developers think a project
+must be using C/C++ programs when they see a <strong>Makefile</strong> in a project, but
+<a class="reference external" href="https://www.gnu.org/software/make/">Make</a> does not care about the project language. You use a <strong>Makefile</strong> to
+define a task you need to do over and over, then <a class="reference external" href="https://www.gnu.org/software/make/">Make</a> will run those steps for
+you with one short command.</p>
+<p>let’s start off our makefile by describing how we set up our project for modern
+Python development. Here is the start.</p>
+<p>There are three tasks we need to perform in this file. The makefile documents
+the commands we need to run to perform each one</p>
+<div class="section" id="init">
+<h3>init<a class="headerlink" href="#init" title="Permalink to this headline">¶</a></h3>
+<p>A Python project is usually run inside of something called a 8virtual
+Environment*, something that isolates your project and all the specific
+versions of supporting projects you include in your project, from every other
+project on your system. This allows two projects to use different versions of
+the same dependency without messing up either project.</p>
+<p>We will list our dependencies in a special file named <strong>requirements.txt</strong> that
+looks like this for our project:</p>
+<p>A Python <em>Virtual Environment</em> is a self-contained copy of the python
+installation, and a private area where project dependency code will be
+installed using the python <strong>pip</strong> tool. The directory where all of this python
+code will live is named <strong>_venv</strong> in my project directory. The <strong>Makefile</strong>
+example above first checks to see if this folder already exists. If so, it does
+nothing. If not, it runs a Python command to create the directory and the local
+python installation. Next, it “activates” that new installation so ll python
+commands from this moment on (until you close your command line window) will
+use the local version of python and its tools. The last line just makes sure
+that we use the latest version of <strong>pip</strong> to install dependencies.</p>
+<p>You can run this set of commands as often as you like using this simple command
+on the command line;</p>
+<p>The first time you run the command, there will be a long string of messages as
+Python sets up your <em>Virtual Environment</em>. If you run it again, the <em>Virtual
+Environment</em> directory will exist, and the command will do nothing.</p>
+</div>
+<div class="section" id="reqs">
+<h3>reqs<a class="headerlink" href="#reqs" title="Permalink to this headline">¶</a></h3>
+<p>The second set of commands is used to make sure your <em>Virtual Environment</em> has
+the dependencies you need installed locally. The first line in this set asks
+<strong>pip</strong> to load the dependencies listed in the <strong>requirements.txt</strong> file. The
+next command in this list creates directories for the documentation we will be
+processing using <a class="reference external" href="https://www.sphinx-doc.org/">Sphinx</a>. <a class="reference external" href="https://github.com/">Github</a> has a neat feature available for free called
+<em>Github Pages</em>. If you load web pages, such as those that <a class="reference external" href="https://www.sphinx-doc.org/">Sphinx</a> will build
+for you into a directory named <strong>docs</strong> in your project, <a class="reference external" href="https://github.com/">Github</a> will make
+those web pages visible on the Internet for free. We will set that up in a bit.</p>
+<p>The last line in this set adds one file needed for <em>Github Pages</em> to work with
+our project. The <strong>.nojekyll</strong> file, which has nothing in it, prevents further
+processing of your web pages by <a class="reference external" href="https://github.com/">Github</a> before they get displayed on the web.</p>
+</div>
+<div class="section" id="docs">
+<h3>docs<a class="headerlink" href="#docs" title="Permalink to this headline">¶</a></h3>
+<p>The last set of commands will be run any time you add new pages to your
+documentation. This command first changes to the documentation folder, named
+<strong>rst</strong> since it holds <em>reStructuredText</em> documentation and <a class="reference external" href="https://www.sphinx-doc.org/">Sphinx</a> control files, then runs
+the <a class="reference external" href="https://www.sphinx-doc.org/">Sphinx</a> command to build your web pages and place them in the <strong>docs</strong>
+directory.</p>
+</div>
+</div>
+<div class="section" id="update-gitignore">
+<h2>Update .gitignore<a class="headerlink" href="#update-gitignore" title="Permalink to this headline">¶</a></h2>
+<p>At this point, we need to make an addition to the <strong>.gitignore</strong> file. We do
+not want all of the code in the <strong>_venv</strong> directory included in our <a class="reference external" href="https://github.com/">Github</a>
+account, and we do not want anything extra constructed by <a class="reference external" href="https://www.sphinx-doc.org/">Sphinx</a> included
+either. Here are the changes that keep those areas out of the official version
+on <a class="reference external" href="https://github.com/">Github</a>:</p>
+</div>
+<div class="section" id="sphinx-setup">
+<h2>Sphinx Setup<a class="headerlink" href="#sphinx-setup" title="Permalink to this headline">¶</a></h2>
+<p>Before we can build web pages for this project, we need two additional files in
+the <strong>rst</strong> directory. These can be created using the <strong>sphinx-quickstart</strong>
+command documented in the <a class="reference external" href="https://www.sphinx-doc.org/">Sphinx</a> documentation. I am just going to show those
+files from this project. (I have already created them and cleaned them up for
+the notes I am writing now.</p>
+<div class="section" id="conf-py">
+<h3>conf.py<a class="headerlink" href="#conf-py" title="Permalink to this headline">¶</a></h3>
+<p>This file is a configuration file for <a class="reference external" href="https://www.sphinx-doc.org/">Sphinx</a>. It includes some basic
+information about the project that will need to be modified for each project.</p>
+</div>
+<div class="section" id="index-rst">
+<h3>index.rst<a class="headerlink" href="#index-rst" title="Permalink to this headline">¶</a></h3>
+<p>The top-level file in your documentation is the main web page for your
+documentation. In this file we will tell <a class="reference external" href="https://www.sphinx-doc.org/">Sphinx</a> exactly where the
+documentation pages should appear. In my example, I start off by placing
+introductory pages in an <strong>introduction</strong> directory under the <strong>rst</strong>
+directory. I use a simple convention that numbers each page in that
+subdirectory with two leading digits so Sphinx will load then in the correct
+order automatically. If I add new pages to this section, they will be processed
+without modifying the <strong>index.rst</strong> file. Here is my starting file:</p>
+</div>
+</div>
+<div class="section" id="add-document-files">
+<h2>Add Document Files<a class="headerlink" href="#add-document-files" title="Permalink to this headline">¶</a></h2>
+<p>Now, we just create new <em>reStructuredText</em> files under the <strong>rst</strong> directory, and run our
+set of commands with <a class="reference external" href="https://www.gnu.org/software/make/">Make</a>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make docs
+</pre></div>
+</div>
+<p>Using your file explorer tool, navigate to the <strong>docs</strong> flder and double-click
+on the <strong>index.html</strong> file. You will see the nice web pages produced by Sphinx.
+When they look like you want, let’s get them on <a class="reference external" href="https://github.com/">Github</a> so the world can see
+them</p>
+</div>
+<div class="section" id="update-github">
+<h2>Update Github<a class="headerlink" href="#update-github" title="Permalink to this headline">¶</a></h2>
+<p>First, make sure you have “pushed” your project with some files in the <strong>docs</strong>
+folders. That means you have actually run <a class="reference external" href="https://www.sphinx-doc.org/">Sphinx</a> at least once on your
+development machine.</p>
+<p>Before <a class="reference external" href="https://github.com/">Github</a> will display your new web pages, you need to tell it to do so.
+Log into your <a class="reference external" href="https://github.com/">Github</a> account and navigate to your project repository. Find the
+<strong>settings</strong> menu item, then scroll down to the <em>Github Pages</em> area.</p>
+<p>Under <em>Source</em>, select “master branch/docs folder”</p>
+<p>Shortly after making this change on <a class="reference external" href="https://github.com/">Github</a>. You can see your new project
+website at <strong>https://&lt;githubusername&gt;.github.com/&lt;projectname&gt;/</strong></p>
+<p>Here is a link to this project’s documentation:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://rblack42.github.io/pyrst/">https://rblack42.github.io/pyrst/</a></p></li>
+</ul>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>I add this link to the <strong>README.rst</strong> file so folks browsing projects on
+<a class="reference external" href="https://github.com/">Github</a> can find the documentation easily.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="04-testing.html" class="btn btn-neutral float-right" title="Testing Your Code" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="02-getting-started.html" class="btn btn-neutral float-left" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Roie R. Black
+      <span class="lastupdated">
+        Last updated on May 05, 2020.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

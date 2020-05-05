@@ -1,0 +1,305 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Testing Your Code &mdash; pyrst 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Documenting Your project" href="03-documentation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pyrst
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01-preface.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-documentation.html">Documenting Your project</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Testing Your Code</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#adding-test-tools">Adding Test Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-a-test-task-in-makefile">Create A Test Task in Makefile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-travis-ci-support">Adding Travis-CI Support</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pyrst</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Testing Your Code</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/introduction/04-testing.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="testing-your-code">
+<h1>Testing Your Code<a class="headerlink" href="#testing-your-code" title="Permalink to this headline">¶</a></h1>
+<p>Read time: 7.0 minutes (695 words)</p>
+<p>Do you test your code? Of course you do. You run it and make sure it produces
+the expected results. That is one form of testing, but not the best form.</p>
+<p>In today’s development world, you never make a change to your code without
+first writing some form of test to automatically make sure your changes work as
+expected. This is called <strong>Test Driven Development</strong> and it requires at least
+three steps (we will actually use five!)</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Decide what feature to add next.</p></li>
+<li><p>Write a simple test that proves that this new feature works.</p></li>
+<li><p>Run the test and prove that it fails (it will, you have not written any
+code yet!)</p></li>
+<li><p>Write code to make the test pass.</p></li>
+<li><p>Clean up your code and make it better, without changing how it works.
+This is called <em>refactoring</em>.</p></li>
+</ol>
+</div></blockquote>
+<p>We will be using this process as we proceed in the development work on
+<strong>pyrst</strong>. But before we begin, we need to do a bit more setup work.</p>
+<div class="section" id="adding-test-tools">
+<h2>Adding Test Tools<a class="headerlink" href="#adding-test-tools" title="Permalink to this headline">¶</a></h2>
+<p>We do not want to manually run a bunch of tests, so we will use a test
+discovery tool to run them for us. I use a simple tool called <strong>nosetests</strong> to
+do this for Python projects. (Where to folks come up with these names?).</p>
+<p>Add <strong>nose</strong> to your <strong>requirements.txt</strong> file, then run <strong>make reqs</strong> to add
+this package.</p>
+<p>Python has support for basic unit testing built in, Create a <strong>tests</strong>
+directory in your project and add this starting test:</p>
+<p>This test file shows the pattern we will use for future tests. We have nothing
+to test yet, so this test simply makes sure our tests system works.</p>
+<p>You can verify this by running this command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ nosetest
+
+.
+----------------------------------------------------------------------
+Ran <span class="m">1</span> <span class="nb">test</span> in <span class="m">0</span>.008s
+</pre></div>
+</div>
+<p>This is what we want to see. The test “passed”, meaning no errors were seen. If
+the test had “failed” I would see a message telling me I have more work to do.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Once you get into testing, you never walk away from a project unless all
+tests pass. That way, your work has not broken the project others might be
+working on. You wil experience evil feelings if you break a big project (or
+worse!)</p>
+</div>
+</div>
+<div class="section" id="create-a-test-task-in-makefile">
+<h2>Create A Test Task in Makefile<a class="headerlink" href="#create-a-test-task-in-makefile" title="Permalink to this headline">¶</a></h2>
+<p>Since we will be testing a lot, we need to add another task to our Makefile:</p>
+<p>With this addition, all tests we write will be run with one simple <a class="reference external" href="https://www.gnu.org/software/make/">Make</a> command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make <span class="nb">test</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="adding-travis-ci-support">
+<h2>Adding Travis-CI Support<a class="headerlink" href="#adding-travis-ci-support" title="Permalink to this headline">¶</a></h2>
+<p>Another great tool you can use for free is automatic testing on <a class="reference external" href="https://travis-ci.org/">Travis-CI</a>.
+This service will watch your <a class="reference external" href="https://github.com/">Github</a> repository, and any time you update
+things, it will automatically create a clone of your project and run commands
+you specify. If all of that works with no errors, you will be issued a “badge”
+that you can place a link to on your project repository <strong>READMErst</strong> file. That
+way you can instantly see that this project is being tested and is in good
+shape. Broken projects, indicated by tests that fail, are not good places to
+spend time, too much work is needed to to get this project in a shape that
+makes it interesting enough to study!</p>
+<p>To use <a class="reference external" href="https://travis-ci.org/">Travis-CI</a>, you need to set up an account on their system, then add your
+project repository to the list of projects to watch Once that is done, we add a
+control file to our project named <strong>.travis.yml</strong>. For our simple project, here
+is a start on this file:</p>
+<p>This file tells <a class="reference external" href="https://travis-ci.org/">Travis-CI</a> what language we are using, what to do to get the
+project ready to run, then the project command we want to run to test things.
+Travis-CI actually builds a virtual machine for this project, clones your
+project into that machine, then does the setup needed for your project to run
+inside that machine. By default this test machine runs Linux, which should be no
+problem for Python projects. All we want to do is verify that our tests (all
+one of them) run without errors on this different machine.  This gets rid of
+silly developers saying “it runs on my machine” when your code does not run
+elsewhere!</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can atch <a class="reference external" href="https://travis-ci.org/">Travis-CI</a> do all this work by logging into your account and
+clicking on your project name. Every time the server starts a new “build”
+(which it does every time you push changes to <a class="reference external" href="https://github.com/">Github</a>), the build will run
+and the badge will be updated. Check out the project page on <a class="reference external" href="https://github.com/">Github</a> to see
+the results!</p>
+</div>
+<p>Hey! We are ready to write some code!</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="03-documentation.html" class="btn btn-neutral float-left" title="Documenting Your project" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Roie R. Black
+      <span class="lastupdated">
+        Last updated on May 05, 2020.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

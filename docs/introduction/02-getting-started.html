@@ -1,0 +1,320 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Getting Started &mdash; pyrst 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Documenting Your project" href="03-documentation.html" />
+    <link rel="prev" title="Preface" href="01-preface.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pyrst
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01-preface.html">Preface</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#step-1-pick-a-project-name">Step 1: Pick a Project Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-2-get-the-project-on-github">Step 2: Get the Project on Github</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a-new-way-to-think">A New Way to Think</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="03-documentation.html">Documenting Your project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-testing.html">Testing Your Code</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pyrst</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Getting Started</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/introduction/02-getting-started.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<p>How do we even begin a project? I am going to assume that you are familiar with
+the basic development process, so some of what we will do is based on having
+some experience, including using the <em>command-line</em> to activate programs and
+manage the file system.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you have never used the <em>command line</em>, you should spend some time
+learning that skill. You will be much better prepared to use modern
+machines living in that “cloud” we hear about, most of which have no fancy
+graphical mouse-driven interface!</p>
+</div>
+<div class="section" id="step-1-pick-a-project-name">
+<h2>Step 1: Pick a Project Name<a class="headerlink" href="#step-1-pick-a-project-name" title="Permalink to this headline">¶</a></h2>
+<p>You need a simple name for your project. Convention tells us to keep the name
+all lower case, do not use dashes in the name (underscores are OK) and the
+shorter the better. I chose <strong>pyrst</strong>, since this is a Python program that will
+process reStructuredText files, which end with the extension <strong>.rst</strong>. Simple
+enough!</p>
+<p>We begin the project by establishing a home for it on our development system. I
+keep all my active development work in a directory named <strong>_projects</strong> on my friendly
+Macbook Pro laptop. The leading underscore is used to force that directory name
+to the top of alphabetical lists of directory contents in my <em>Fiinder</em> tool
+(file explorer for you Windows folks).</p>
+<p>We will be documenting this project using Sphinx (for now) and hosting the
+project on Github. All self-respecting develpers use some form of
+source-code-control, and Git is the most popular tool out there at the moment.
+Github is the home for millions of software projects. My Github user name is
+<strong>rblack42</strong>, so I will shoow how I set things up fr this new project in my
+account.</p>
+</div>
+<div class="section" id="step-2-get-the-project-on-github">
+<h2>Step 2: Get the Project on Github<a class="headerlink" href="#step-2-get-the-project-on-github" title="Permalink to this headline">¶</a></h2>
+<p>Even though the project is just a simple directory, we cna take the next step and create the home for it on Github. Assuming you have Git installed on your system, here is how we proceed:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> pyrst
+$ git init
+Initialized empty Git repository in /Users/rblack/projects/pyrst/.git/
+</pre></div>
+</div>
+<p>Of course it is empty, we have not added any files to the project yet!</p>
+<p>Next, we need to add a special file to the project, to keep Git from copying useless files to Github. Ideally, all we will copy there are files needed t actually build our code, not anything we can create from that code later.</p>
+<p>The file we need is named <strong>.gitignore</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mac</span>
+<span class="o">.</span><span class="n">DS_Store</span>
+
+<span class="c1"># Vim</span>
+<span class="o">*~</span>
+<span class="o">*.</span><span class="n">sw</span><span class="o">*</span>
+
+<span class="c1"># Python</span>
+<span class="o">*.</span><span class="n">pyc</span>
+<span class="n">_Venv</span><span class="o">/</span>
+<span class="o">*/</span><span class="n">__pycache__</span><span class="o">/</span>
+
+<span class="c1"># Sphinx</span>
+<span class="o">/</span><span class="n">rst</span><span class="o">/</span><span class="n">_build</span><span class="o">/</span>
+
+</pre></div>
+</div>
+<p>Mac system create a funny file named <strong>.DS_Store</strong> in every directory they find.
+This is used to speed up searches on the file system. Those files are not part
+of our development work, and we do NOT want them on Github. The <strong>.gitignore</strong>
+file details file names and directories  we do not want managed by Git. We will add
+more to this file later. As you see in the above example, you can add Python-style comments to this file.</p>
+<p>Next, you need to create a repository for this project on Github. LOg into that system and create the repository with the project name we chose. Do not add anything ekse at the moment. When you create this new repository, you will see instructions detailing how to connect your current project directory to Github. You will need to run two commands on your development machine to make this connection:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> pyrst
+$ git remote add origin https://github.com/rblack42/pyrst.git
+$ git push -u origin master
+</pre></div>
+</div>
+<p>The first line is only needed if you are not currently working inside the
+project directory. The next line actually tells your local version of Git where
+this project is hosted. The name of the remote server is <strong>origin</strong>, and the
+place on thta servr to connect to is shown. (Remember that I am using my Github account in this example. Your  will need to use your own account name.</p>
+<p>the lst line “pushes” new files from your development system to Github. The -u option tels Github to track changes to the project on the server. We will only add that option once when we copy files to the server.</p>
+<p>Once this process completes, ou hv a home for your project that can be vieed by millions of developers. Open SOurce projects are  wonderful way to explore how developers set up projects and produce their code.
+be different.name of the Git branch to copy from is <strong>master</strong>.</p>
+</div>
+<div class="section" id="a-new-way-to-think">
+<h2>A New Way to Think<a class="headerlink" href="#a-new-way-to-think" title="Permalink to this headline">¶</a></h2>
+<p>Great! We have created a home for the project, and have a start in our actual
+development work. We should begin thinking that Github has our real code. What
+we have locally is called a “working copy” of that code. We will do our work
+locally in our working copy, then “push” new work to the server when we think it is an
+appropriate time to do so. Most serious developers “push” every time they reach
+some kind of milestone, however small that may be. Once the “push”  completes,
+we can always get a fresh copy of everything on the server any time we need, on
+any machine we want to use. That can be very handy if you work on multiple
+machines.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In my teaching, I always kept machines for each of the three major systems
+developers use: Linux, Windows, and Macs. I would set up a project on my
+Macbook, then “clone” the project on each of the other systems to make sure
+everything would work for all of my students. It was quite an adventure
+dealing with the variety of systems students brought to my classes! This
+process was not actually needed for a single project, but I had to hep
+students get the development rool they would need for my classes running on
+their particular machines!</p>
+</div>
+<p>We are ready to actually produce some code, but we will be taking “baby-steps”
+from here. There is a reason for this and that has to do with creating code
+that actually works, and proving that it does!</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="03-documentation.html" class="btn btn-neutral float-right" title="Documenting Your project" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="01-preface.html" class="btn btn-neutral float-left" title="Preface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Roie R. Black
+      <span class="lastupdated">
+        Last updated on May 05, 2020.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

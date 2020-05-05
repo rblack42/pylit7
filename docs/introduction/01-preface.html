@@ -1,0 +1,389 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Preface &mdash; pyrst 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Getting Started" href="02-getting-started.html" />
+    <link rel="prev" title="PyLiT7: A reStructuredText Processor" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pyrst
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Preface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#documenting-software">Documenting Software</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-documentation">“What” Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-documentation">“Why” Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#documentation-tools">Documentation Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#docutils">Docutils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#python-sphinx">Python Sphinx</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#literate-programming">Literate Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pylit7">PyLiT7</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="02-getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-documentation.html">Documenting Your project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-testing.html">Testing Your Code</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pyrst</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Preface</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/introduction/01-preface.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="preface">
+<h1>Preface<a class="headerlink" href="#preface" title="Permalink to this headline">¶</a></h1>
+<p>Developers love to write documentation!</p>
+<p>Yeah, right!</p>
+<div class="section" id="documenting-software">
+<h2>Documenting Software<a class="headerlink" href="#documenting-software" title="Permalink to this headline">¶</a></h2>
+<p>Developers traditionally spend the major part of their time thinking about how
+to get their project running. They come up with ideas, code those ideas, then
+test them.  Maybe they write documentation, but that is not really what they
+think about the most. At some point, hopefully, their code matures sufficiently
+and it is released to those “end-users”.</p>
+<p>At that point the software enters a different phase: maintenance. Someone,
+maybe even someone different from the original developer, has to maintain this
+code. Maintain means fixing bugs, and adding new features.</p>
+<p>Hopefully, the maintainer will find documentation for this code. That will make
+their work easier!</p>
+<p>Right!</p>
+<div class="section" id="what-documentation">
+<h3>“What” Documentation<a class="headerlink" href="#what-documentation" title="Permalink to this headline">¶</a></h3>
+<p>Far too many developers focus their documentation on telling the world exactly
+<em>what</em> their code does. The code itself does that. If only we could read it.</p>
+<p>The worst kind on documentation you will ever find tells you to just “read the
+code” to figure things out! If you did not write that code, you may be able to
+figure things out, but it is going to take far too much of your time doing so!</p>
+<p>Well written code is often “self-documenting”, up to a point. If the original
+developer used good names for program components, it may be possible to figure
+out how things work sufficiently well to fix problems or add features. A lot of
+developers seem to feel that writing writing self-documenting code takes a lot
+of effort, and that interferes with getting code running and delivered! They
+are under a lot of pressure, and time is valuable!</p>
+<p>Some developers go overboard in adding documentation to their code in the form
+of comments. There are tools available that extract properly structured
+comments and produce pretty web pages to help the maintainer navigate the code.
+Again, there is a problem with this. The resulting code is hard to read, since
+it ends up buried between lengthy comment blocks.</p>
+<p>Obviously, we need to make documentation more valuable, and studies of
+successful software projects show that the code is a small part of what makes a
+project successful! Over the life of a project, time spent in documentation
+pays off rewards hard to see in the heat of development.</p>
+</div>
+<div class="section" id="why-documentation">
+<h3>“Why” Documentation<a class="headerlink" href="#why-documentation" title="Permalink to this headline">¶</a></h3>
+<p>The main issue for a maintainer is not in the code itself. It may run just fine
+and may be clearly written. The problem is that the code was written by someone
+who had an immense amount of knowledge about that code stuck in that head of
+theirs, and that knowledge is not sitting anywhere in that code. Too often,
+that developer never wrote anything down to help explain the decisions that
+were made in building the code.</p>
+<p>The maintainer needs to understand <em>why</em> the code is structured as it is.  That
+information is too often completely missing. We need tools that the developer
+can use to write down their thinking, and several have evolved.</p>
+<p>Since this is a Python project, we will focus on the documentation tool set
+most commonly used today in Python development.</p>
+</div>
+</div>
+<div class="section" id="documentation-tools">
+<h2>Documentation Tools<a class="headerlink" href="#documentation-tools" title="Permalink to this headline">¶</a></h2>
+<p>Developers are tied to their favorite editing tool, and will not pick up
+something like Microsoft word to produce anything. If we hope to get them to do
+a better job of documenting their work, we need to give them better tools.</p>
+<div class="section" id="docutils">
+<h3>Docutils<a class="headerlink" href="#docutils" title="Permalink to this headline">¶</a></h3>
+<p>In 2000, David Goodger created a simple markup language he called
+reStructuredText. This markup was simple to use. Documentation files could be
+created using any text editor, and the resulting pages were readable with no
+further processing David hoped this markup would be simple enough that
+developers would be encouraged to produce better documentation. BY 2002 he had
+developed a tool set for processing this markup into nice web pages and LaTeX
+documents. His work succeeded, and developers did start creating better
+documentation, but things really took off in 2008 when a second tool was
+introduced.</p>
+</div>
+<div class="section" id="python-sphinx">
+<h3>Python Sphinx<a class="headerlink" href="#python-sphinx" title="Permalink to this headline">¶</a></h3>
+<p>Georg Brandl decided to add a layer on top of Docutils, with the intent of
+making it easier to produce larger documentation products. Using Sphinx,
+collections of reStructuredText pages could be stitched together with a table
+of contents to produce a real “document”. Tools were added to produce
+publication quality PDF files, and even ebooks.</p>
+<p>Sphinx was originally designed to produce the documentation for the Python
+project itself. Since everything is freely available, sphinx has become a
+standard tool for documenting projects in all kinds of languages. I have used
+Sphinx for over 15 years to produce lecture notes for Computer Science courses
+I taught at Austin Community College in Austin, Texas.</p>
+<p>In spite of all of those years using this fine tool, I have still found the
+need to add features to the program. Specifically, I wanted my lecture notes to
+be able to include high-quality diagrams and figures, include code fragments,
+and actual program output, and ultimately to produce book quality outputs.
+Sphinx is almost capable of doing all of that, especially if you add custom
+extensions to the tool. Many such extensions are available, but I still needed
+to add a few of my own. Unfortunately, for a tool designed to support
+documentation, most of the Sphinx documentation seems to be ‘what’
+documentation, making is hard to figure out how to extend the program. Reading
+the code is painful, unless you are ready to spend quite a lot of time looking
+for guidance others have dug out.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Sorry, goerge. you should have written better ‘why’ documentation! Of
+course, thqt is just my opinion, and is not meant to take anything away
+from a tool that has done much to improve the state of documentation in
+this development world!</p>
+</div>
+<p>So how should we document a project?</p>
+</div>
+</div>
+<div class="section" id="literate-programming">
+<h2>Literate Programming<a class="headerlink" href="#literate-programming" title="Permalink to this headline">¶</a></h2>
+<p>In 1984, Dr. Donald Knuth knew about this documentation problem. He developed a
+new philosophy he wanted developers to follow in building their code. He called
+it <cite>Literate Programming</cite>. Basically, Dr. Knuth wanted to give the developer a
+set of tools they could use to tell the story of their work. They would write
+up that story so humans could follow along and see <em>why</em> the code was put
+together in the way it is presented. The code could then be extracted from that
+story and processed normally. It was a very innovative idea that,
+unfortunately, did not take off as Dr. Knuth hoped it would.</p>
+<p>When Knuth’s original paper on this idea first came out, I was beginning my
+work as an educator, teaching at the U.S. Air Force’s graduate school in Dayton
+Ohio. It struck me then that getting students to explain <em>why</em> they were
+building their code some way would be an excellent way to spot problems with
+their approach, and would help me correct any bad habits early. Unfortunately,
+I never was able to take that idea further, as my Air Force career sent me to
+other assignments.</p>
+<p>I did write a simple Literate Programming tool I called PyLiT as part of my work on a Master’s
+Degree in Computer Science in 2003. In that project I constructed a wiki engine that supported
+a simple form of Knuth’s Literate Programming tools enabling developers to write code fragments
+embedded in their wiki pages, that could be extracted to form normal code files
+later.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This idea was not something KNuth wanted to see, since he believed they
+shoudl focus on the document they were writing. The code should only be
+seen in final form by processing tools, like their friendly compiler!)</p>
+</div>
+<p>Missing in that previous work was the ability to produce high-quality
+documentation in forms other than web pages.</p>
+</div>
+<div class="section" id="pylit7">
+<h2>PyLiT7<a class="headerlink" href="#pylit7" title="Permalink to this headline">¶</a></h2>
+<p>That leads me to the development of the current tool which I am simply calling
+<strong>pylit7</strong>. I came up with this name in 2003, while working on a project for my
+Computer Science Master’s Degree. However, I failed to get that name locked
+down, and lost it to another developer. Not before I did register <strong>pylit.org</strong>
+as my domain name, though!</p>
+<p>Why this name? This tool is currently being written in Python, but may be
+rewritten later in Go for reasons that will be explained as these notes
+progress. The project will include ideas from Knuth’s <em>Literate Programming</em>
+concepts, but adapted to my own ideas about how Computer Science should be
+taught today, and how documentation should be produced. The seven is simple:
+this is the seventh version I have created.  The first six were used privately,
+although remnants of those versions still live on my <a href="#id1"><span class="problematic" id="id2">GitHub_</span></a> account.</p>
+<p>The timing of this project may seem all wrong, since I
+have actually retired from teaching now (and everything else!) However, I find
+that I now have the time to put something together, and get that work out there
+for others to use, extend, or trash! My hope is that the ideas I present make
+enough sense to enough developers that something new will appear in the
+development world. Maybe that will lead us in new directions, building better
+products for future users!</p>
+<p>The notes you will find here are in the form of a development diary. I want to
+take the reader on a journey through the complete process of building a new
+Python product, and detail all the steps taken to get that product out. Much of
+what I will show is based on years of teaching software development to new
+students, and doing that work professionally as well. My approach may differ
+from that of others, but I will explain my reasoning as we proceed.</p>
+<p>I hope you enjoy the journey!</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="02-getting-started.html" class="btn btn-neutral float-right" title="Getting Started" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="PyLiT7: A reStructuredText Processor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Roie R. Black
+      <span class="lastupdated">
+        Last updated on May 05, 2020.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
