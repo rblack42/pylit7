@@ -27,8 +27,8 @@ addition to your resume!
 So, we will be using the command line for our work.
 
 But I am not going to force you to run every command manually. That would be
-silly and time consuming. Instead, we will use a classic tool from the Unix
-world called **make**. 
+silly and time consuming. Instead, we will use a classic tool originally
+developed in Unix world called **make**. 
 
 Make uses a simple (well, simple after you learn a few things) text file to
 describe the steps needed to perform some task. Some developers think a project
@@ -37,7 +37,7 @@ Make_ does not care about the project language. You use a **Makefile** to
 define a task you need to do over and over, then Make_ will run those steps for
 you with one short command. 
 
-let's start off our makefile by describing how we set up our project for modern
+Let's start off our **Makefile** by describing how we set up our project for modern
 Python development. Here is the start.
 
 ..   literalinclude;;    /examples/makefile-1
@@ -162,10 +162,10 @@ set of commands with Make_:
 
     $ make docs
 
-Using your file explorer tool, navigate to the **docs** flder and double-click
+Using your file explorer tool, navigate to the **docs** directory and double-click
 on the **index.html** file. You will see the nice web pages produced by Sphinx.
 When they look like you want, let's get them on Github_ so the world can see
-them
+them.
 
 Update Github
 *************
@@ -173,6 +173,16 @@ Update Github
 First, make sure you have "pushed" your project with some files in the **docs**
 folders. That means you have actually run Sphinx_ at least once on your
 development machine. 
+
+..  code-block:: bash
+
+    $ make docs
+    $ git push origin master
+
+..  note::
+
+    If you have errors in yout documentation files, you willl need to correct
+    them before running the **push** commnd.
 
 Before Github_ will display your new web pages, you need to tell it to do so.
 Log into your Github_ account and navigate to your project repository. Find the

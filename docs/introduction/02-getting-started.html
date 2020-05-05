@@ -175,31 +175,33 @@ graphical mouse-driven interface!</p>
 <h2>Step 1: Pick a Project Name<a class="headerlink" href="#step-1-pick-a-project-name" title="Permalink to this headline">¶</a></h2>
 <p>You need a simple name for your project. Convention tells us to keep the name
 all lower case, do not use dashes in the name (underscores are OK) and the
-shorter the better. I chose <strong>pyrst</strong>, since this is a Python program that will
-process reStructuredText files, which end with the extension <strong>.rst</strong>. Simple
-enough!</p>
+shorter the better. I chose <strong>pylit7</strong>.</p>
 <p>We begin the project by establishing a home for it on our development system. I
 keep all my active development work in a directory named <strong>_projects</strong> on my friendly
 Macbook Pro laptop. The leading underscore is used to force that directory name
 to the top of alphabetical lists of directory contents in my <em>Fiinder</em> tool
 (file explorer for you Windows folks).</p>
 <p>We will be documenting this project using Sphinx (for now) and hosting the
-project on Github. All self-respecting develpers use some form of
+project on <a href="#id1"><span class="problematic" id="id2">Github_</span></a>. All self-respecting developers use some form of
 source-code-control, and Git is the most popular tool out there at the moment.
-Github is the home for millions of software projects. My Github user name is
-<strong>rblack42</strong>, so I will shoow how I set things up fr this new project in my
+<a href="#id3"><span class="problematic" id="id4">Github_</span></a> is the home for millions of software projects. My <a href="#id5"><span class="problematic" id="id6">Github_</span></a> user name is
+<strong>rblack42</strong>, so I will show how I set things up for this new project in my
 account.</p>
 </div>
 <div class="section" id="step-2-get-the-project-on-github">
 <h2>Step 2: Get the Project on Github<a class="headerlink" href="#step-2-get-the-project-on-github" title="Permalink to this headline">¶</a></h2>
-<p>Even though the project is just a simple directory, we cna take the next step and create the home for it on Github. Assuming you have Git installed on your system, here is how we proceed:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> pyrst
+<p>Even though the project is just a simple directory, we can take the next step
+and create the home for it on <a href="#id7"><span class="problematic" id="id8">Github_</span></a>. Assuming you have <a href="#id9"><span class="problematic" id="id10">Git_</span></a> installed on your
+system, here is how we proceed:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> pylit7
 $ git init
 Initialized empty Git repository in /Users/rblack/projects/pyrst/.git/
 </pre></div>
 </div>
 <p>Of course it is empty, we have not added any files to the project yet!</p>
-<p>Next, we need to add a special file to the project, to keep Git from copying useless files to Github. Ideally, all we will copy there are files needed t actually build our code, not anything we can create from that code later.</p>
+<p>Next, we need to add a special file to the project, to keep Git from copying
+useless files to <a href="#id11"><span class="problematic" id="id12">Github_</span></a>. Ideally, all we will copy there are files needed t
+actually build our code, not anything we can create from that code later.</p>
 <p>The file we need is named <strong>.gitignore</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mac</span>
 <span class="o">.</span><span class="n">DS_Store</span>
@@ -218,29 +220,39 @@ Initialized empty Git repository in /Users/rblack/projects/pyrst/.git/
 
 </pre></div>
 </div>
-<p>Mac system create a funny file named <strong>.DS_Store</strong> in every directory they find.
-This is used to speed up searches on the file system. Those files are not part
-of our development work, and we do NOT want them on Github. The <strong>.gitignore</strong>
-file details file names and directories  we do not want managed by Git. We will add
-more to this file later. As you see in the above example, you can add Python-style comments to this file.</p>
-<p>Next, you need to create a repository for this project on Github. LOg into that system and create the repository with the project name we chose. Do not add anything ekse at the moment. When you create this new repository, you will see instructions detailing how to connect your current project directory to Github. You will need to run two commands on your development machine to make this connection:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> pyrst
-$ git remote add origin https://github.com/rblack42/pyrst.git
+<p>Mac system create a funny file named <strong>.DS_Store</strong> in every directory they
+find.  This is used to speed up searches on the file system. Those files are
+not part of our development work, and we do NOT want them on <a href="#id13"><span class="problematic" id="id14">Github_</span></a>. The
+<strong>.gitignore</strong> file details file names and directories  we do not want managed
+by Git. We will add more to this file later. As you see in the above example,
+you can add Python-style comments to this file.</p>
+<p>Next, you need to create a repository for this project on <a href="#id15"><span class="problematic" id="id16">Github_</span></a>. Log into
+that system and create the repository with the project name we chose. Do not
+add anything else at the moment. When you create this new repository, you will
+see instructions detailing how to connect your current project directory to
+<a href="#id17"><span class="problematic" id="id18">Github_</span></a>. You will need to run two commands on your development machine to make
+this connection:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> pylit7
+$ git remote add origin https://github.com/rblack42/pylit7.git
 $ git push -u origin master
 </pre></div>
 </div>
 <p>The first line is only needed if you are not currently working inside the
-project directory. The next line actually tells your local version of Git where
+project directory. The next line actually tells your local version of <a href="#id19"><span class="problematic" id="id20">Git_</span></a> where
 this project is hosted. The name of the remote server is <strong>origin</strong>, and the
-place on thta servr to connect to is shown. (Remember that I am using my Github account in this example. Your  will need to use your own account name.</p>
-<p>the lst line “pushes” new files from your development system to Github. The -u option tels Github to track changes to the project on the server. We will only add that option once when we copy files to the server.</p>
-<p>Once this process completes, ou hv a home for your project that can be vieed by millions of developers. Open SOurce projects are  wonderful way to explore how developers set up projects and produce their code.
-be different.name of the Git branch to copy from is <strong>master</strong>.</p>
+place on that server to connect to is shown. (Remember that I am using my
+<a href="#id21"><span class="problematic" id="id22">Github_</span></a> account in this example. Your  will need to use your own account name.</p>
+<p>the last line “pushes” new files from your development system to <a href="#id23"><span class="problematic" id="id24">Github_</span></a>. The
+<strong>-u</strong> option tells <a href="#id25"><span class="problematic" id="id26">Github_</span></a> to track changes to the project on the server. We
+will only add that option once when we copy files to the server.</p>
+<p>Once this process completes, you have a home for your project that can be viewed by
+millions of developers. Open-Source projects are wonderful places to explore and see how
+developers set up projects and produce their code.</p>
 </div>
 <div class="section" id="a-new-way-to-think">
 <h2>A New Way to Think<a class="headerlink" href="#a-new-way-to-think" title="Permalink to this headline">¶</a></h2>
 <p>Great! We have created a home for the project, and have a start in our actual
-development work. We should begin thinking that Github has our real code. What
+development work. We should begin thinking that <a href="#id27"><span class="problematic" id="id28">Github_</span></a> has our real code. What
 we have locally is called a “working copy” of that code. We will do our work
 locally in our working copy, then “push” new work to the server when we think it is an
 appropriate time to do so. Most serious developers “push” every time they reach

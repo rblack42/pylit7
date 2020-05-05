@@ -1,5 +1,5 @@
 import unittest
-from pyrst.utils import signon
+from pylit7.utils import signon
 
 class TestSignon(unittest.TestCase):
 

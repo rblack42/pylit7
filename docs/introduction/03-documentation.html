@@ -171,7 +171,7 @@
             
   <div class="section" id="documenting-your-project">
 <h1>Documenting Your project<a class="headerlink" href="#documenting-your-project" title="Permalink to this headline">¶</a></h1>
-<p>Read time: 11.7 minutes (1169 words)</p>
+<p>Read time: 11.9 minutes (1188 words)</p>
 <p>We will begin this project by using <a class="reference external" href="https://www.sphinx-doc.org/">Sphinx</a> to generate our documentation. We
 will need to process <em>reStructuredText</em> files using this tool many times, and the required
 command is a bit obnoxious to remember. Instead we will use another common tool
@@ -192,15 +192,15 @@ run on a remote server, and knowing how to work on those machines is a valuable
 addition to your resume!</p>
 <p>So, we will be using the command line for our work.</p>
 <p>But I am not going to force you to run every command manually. That would be
-silly and time consuming. Instead, we will use a classic tool from the Unix
-world called <strong>make</strong>.</p>
+silly and time consuming. Instead, we will use a classic tool originally
+developed in Unix world called <strong>make</strong>.</p>
 <p>Make uses a simple (well, simple after you learn a few things) text file to
 describe the steps needed to perform some task. Some developers think a project
 must be using C/C++ programs when they see a <strong>Makefile</strong> in a project, but
 <a class="reference external" href="https://www.gnu.org/software/make/">Make</a> does not care about the project language. You use a <strong>Makefile</strong> to
 define a task you need to do over and over, then <a class="reference external" href="https://www.gnu.org/software/make/">Make</a> will run those steps for
 you with one short command.</p>
-<p>let’s start off our makefile by describing how we set up our project for modern
+<p>Let’s start off our <strong>Makefile</strong> by describing how we set up our project for modern
 Python development. Here is the start.</p>
 <p>There are three tasks we need to perform in this file. The makefile documents
 the commands we need to run to perform each one</p>
@@ -213,6 +213,11 @@ project on your system. This allows two projects to use different versions of
 the same dependency without messing up either project.</p>
 <p>We will list our dependencies in a special file named <strong>requirements.txt</strong> that
 looks like this for our project:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sphinx</span>
+<span class="n">sphinx</span><span class="o">-</span><span class="n">rtd</span><span class="o">-</span><span class="n">theme</span>
+<span class="n">nose</span>
+</pre></div>
+</div>
 <p>A Python <em>Virtual Environment</em> is a self-contained copy of the python
 installation, and a private area where project dependency code will be
 installed using the python <strong>pip</strong> tool. The directory where all of this python
@@ -259,6 +264,20 @@ not want all of the code in the <strong>_venv</strong> directory included in our
 account, and we do not want anything extra constructed by <a class="reference external" href="https://www.sphinx-doc.org/">Sphinx</a> included
 either. Here are the changes that keep those areas out of the official version
 on <a class="reference external" href="https://github.com/">Github</a>:</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">.gitignore</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mac</span>
+<span class="o">.</span><span class="n">DS_Store</span>
+
+<span class="c1"># Python</span>
+<span class="n">_Venv</span><span class="o">/</span>
+
+<span class="c1"># Sphinx</span>
+<span class="n">_rst</span><span class="o">/</span><span class="n">_build</span><span class="o">/</span>
+
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="sphinx-setup">
 <h2>Sphinx Setup<a class="headerlink" href="#sphinx-setup" title="Permalink to this headline">¶</a></h2>
@@ -271,6 +290,66 @@ the notes I am writing now.</p>
 <h3>conf.py<a class="headerlink" href="#conf-py" title="Permalink to this headline">¶</a></h3>
 <p>This file is a configuration file for <a class="reference external" href="https://www.sphinx-doc.org/">Sphinx</a>. It includes some basic
 information about the project that will need to be modified for each project.</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">cond.py</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">sphinx_rtd_theme</span>
+
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">))</span>
+
+<span class="c1"># -- Project information -----------------------------------------------------</span>
+
+<span class="n">project</span> <span class="o">=</span> <span class="s1">&#39;pyrst&#39;</span>
+<span class="n">copyright</span> <span class="o">=</span> <span class="s1">&#39;2020, Roie R. Black&#39;</span>
+<span class="n">author</span> <span class="o">=</span> <span class="s1">&#39;Roie R. Black&#39;</span>
+
+<span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;0.0.1&#39;</span>
+<span class="n">release</span> <span class="o">=</span> <span class="s1">&#39;0.0.1&#39;</span>
+<span class="n">language</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">today_fmt</span> <span class="o">=</span> <span class="s1">&#39;%B </span><span class="si">%d</span><span class="s1">, %Y&#39;</span>
+
+<span class="c1"># -- General configuration ---------------------------------------------------</span>
+
+<span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;sphinx.ext.githubpages&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;sphinx_ext.wordcount&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">templates_path</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;_templates&#39;</span><span class="p">]</span>
+<span class="n">source_suffix</span> <span class="o">=</span> <span class="s1">&#39;.rst&#39;</span>
+<span class="n">master_doc</span> <span class="o">=</span> <span class="s1">&#39;index&#39;</span>
+<span class="n">exclude_patterns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;_build&#39;</span><span class="p">,</span> <span class="s1">&#39;Thumbs.db&#39;</span><span class="p">,</span> <span class="s1">&#39;.DS_Store&#39;</span><span class="p">,</span> <span class="s1">&#39;examples&#39;</span><span class="p">]</span>
+<span class="n">pygments_style</span> <span class="o">=</span> <span class="s1">&#39;sphinx&#39;</span>
+
+<span class="c1"># -- Options for HTML output -------------------------------------------------</span>
+<span class="n">html_theme</span> <span class="o">=</span> <span class="s1">&#39;sphinx_rtd_theme&#39;</span>
+<span class="n">html_theme_options</span> <span class="o">=</span> <span class="p">{</span> <span class="p">}</span>
+<span class="n">html_theme_path</span> <span class="o">=</span> <span class="p">[</span><span class="n">sphinx_rtd_theme</span><span class="o">.</span><span class="n">get_html_theme_path</span><span class="p">()]</span>
+<span class="n">html_static_path</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;_static&#39;</span><span class="p">]</span>
+<span class="n">html_use_smartypants</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">html_show_sourcelink</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">html_show_sphinx</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">html_show_copyright</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">html_last_updated_fmt</span> <span class="o">=</span> <span class="s1">&#39;%b </span><span class="si">%d</span><span class="s1">, %Y&#39;</span>
+
+<span class="c1"># -- Options for LaTeX output ------------------------------------------------</span>
+<span class="n">latex_elements</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;papersize&#39;</span><span class="p">:</span> <span class="s1">&#39;letterpaper&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;pointsize&#39;</span><span class="p">:</span> <span class="s1">&#39;12pt&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;figure_align&#39;</span><span class="p">:</span> <span class="s1">&#39;htbp&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">latex_documents</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="n">master_doc</span><span class="p">,</span> <span class="s1">&#39;pyrst.tex&#39;</span><span class="p">,</span> <span class="s1">&#39;pyrst&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;Roie R. Black&#39;</span><span class="p">,</span> <span class="s1">&#39;manual&#39;</span><span class="p">),</span>
+<span class="p">]</span>
+
+<span class="c1"># -- Extension configuration -------------------------------------------------</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="index-rst">
 <h3>index.rst<a class="headerlink" href="#index-rst" title="Permalink to this headline">¶</a></h3>
@@ -282,6 +361,30 @@ directory. I use a simple convention that numbers each page in that
 subdirectory with two leading digits so Sphinx will load then in the correct
 order automatically. If I add new pages to this section, they will be processed
 without modifying the <strong>index.rst</strong> file. Here is my starting file:</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">index.rst</span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>pyrst: A reStructuredText Processor
+===================================
+:Author: Roie R. Black
+:Date: Apr 6, 2020
+:Email: roie.black@gmail.com
+:Documentation: https://rblack42.github.io/pyrst/
+
+.. toctree::
+   :maxdepth: 1
+   :glob:
+
+   introduction/*
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`search`
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="add-document-files">
@@ -291,16 +394,25 @@ set of commands with <a class="reference external" href="https://www.gnu.org/sof
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make docs
 </pre></div>
 </div>
-<p>Using your file explorer tool, navigate to the <strong>docs</strong> flder and double-click
+<p>Using your file explorer tool, navigate to the <strong>docs</strong> directory and double-click
 on the <strong>index.html</strong> file. You will see the nice web pages produced by Sphinx.
 When they look like you want, let’s get them on <a class="reference external" href="https://github.com/">Github</a> so the world can see
-them</p>
+them.</p>
 </div>
 <div class="section" id="update-github">
 <h2>Update Github<a class="headerlink" href="#update-github" title="Permalink to this headline">¶</a></h2>
 <p>First, make sure you have “pushed” your project with some files in the <strong>docs</strong>
 folders. That means you have actually run <a class="reference external" href="https://www.sphinx-doc.org/">Sphinx</a> at least once on your
 development machine.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make docs
+$ git push origin master
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you have errors in yout documentation files, you willl need to correct
+them before running the <strong>push</strong> commnd.</p>
+</div>
 <p>Before <a class="reference external" href="https://github.com/">Github</a> will display your new web pages, you need to tell it to do so.
 Log into your <a class="reference external" href="https://github.com/">Github</a> account and navigate to your project repository. Find the
 <strong>settings</strong> menu item, then scroll down to the <em>Github Pages</em> area.</p>
